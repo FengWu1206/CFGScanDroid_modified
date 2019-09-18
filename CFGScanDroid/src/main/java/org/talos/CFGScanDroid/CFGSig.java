@@ -149,18 +149,19 @@ public class CFGSig {
 				}
 			}
 		}
+
 		for(int i=0; i<adjacencyMatrix.rows(); ++i) {
 			DoubleMatrix1D row = adjacencyMatrix.viewRow(i);
+			indices = new IntArrayList();
+			row.getNonZeros(indices, unused);
 			if(row.cardinality() > 0) {
-				stringSignature += ";" + i + "("  + addr_length.get(i)  + "-" + addr_operation.get(i) + ")" + ":";
-				indices = new IntArrayList();
-				row.getNonZeros(indices, unused);
+
+				stringSignature += ";" + i + "("  +  addr_length.get(i) + "-" + addr_operation.get(i) + ")" + ":";
 
 				for(int j=0; j<indices.size(); ++j) {
 					if(j > 0) 
 						stringSignature += ",";
-
-					stringSignature += indices.get(j) + "("  + addr_length.get(j)  + "-" + addr_operation.get(j) + ")";
+					stringSignature += indices.get(j) + "("  + addr_length.get(indices.get(j))  + "-" + addr_operation.get(indices.get(j)) + ")";
 					//stringSignature
 				}
 			}
