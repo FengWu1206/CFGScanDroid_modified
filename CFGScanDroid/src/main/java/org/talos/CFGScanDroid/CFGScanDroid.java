@@ -109,9 +109,9 @@ public class CFGScanDroid {
     public static void main(String[] args) throws IOException {
         parsedArguments = new JCommanderArguments();
         //the following two lines code are used for debug
-        String[] argv = {"-d", "-f", "/home/wufeng/Downloads/LibPrinter/python3/zip_tmp/classes.dex"};
-        JCommander argParser = new JCommander(parsedArguments, argv);
-        //JCommander argParser = new JCommander(parsedArguments);
+        //String[] argv = {"-d", "-f", "/home/wufeng/Downloads/LibPrinter/python3/zip_tmp/classes.dex"};
+        //JCommander argParser = new JCommander(parsedArguments, argv);
+        JCommander argParser = new JCommander(parsedArguments);
         // parse arguments
         try {
             argParser.parse(args);
